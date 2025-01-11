@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo-title img {
+    margin-right: 10px;
+}
+
+.logo-title h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000;
+}
+
+.login-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 50px; /* Memperbesar padding agar lebih besar */
+    width: 250px;  /* Lebar form diperbesar */
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    font-size: 28px; /* Perbesar judul login */
+    font-weight: bold;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 75%;
+    padding: 10px;  /* Memperbesar ukuran input */
+    margin: 22px 0; /* Menambah jarak antar input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-size: 16px; /* Memperbesar ukuran font */
+}
+
+.login-box button {
+    margin: 22px 0; /* Menambah jarak antar input */
+    background-color: #28a745;
+    color: #fff;
+    padding: 15px; /* Memperbesar tombol */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 60%;
+    font-size: 18px; /* Memperbesar ukuran font pada tombol */
+    
+}
+
+.login-box button:hover {
+    background-color: #218838;
+}
