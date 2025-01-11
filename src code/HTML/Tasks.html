@@ -1,0 +1,236 @@
+<html>
+ <head>
+  <title>CodaLearn Tasks</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    /* Sama seperti styling di halaman Dashboard untuk konsistensi */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        display: flex;
+        background-color: #F0F4FF;
+    }
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        background-color: #FFFFFF;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    .logo {
+            display: flex; 
+            align-items: center; 
+            margin-bottom: 40px; 
+            margin-left: 15;
+            margin-top: 20px;
+        }
+
+        .logo-img {
+            width: 30px; 
+            height: 30px;  
+            margin-right: 15px; 
+        }
+        .sidebar h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+    .sidebar h2 {
+        font-size: 16px;
+        margin-top: 60px;
+        margin-bottom: 10px;
+        color: #888888;
+    }
+    .sidebar a {
+        display: flex;
+        margin-top: 20px;
+        align-items: center;
+        text-decoration: none;
+        color: #000000;
+        margin-left: 40px;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    .sidebar a i {
+        margin-right: 10px;
+    }
+    .sidebar a:hover {
+        color: #FFFFFF;
+        background-color: #000000; /* Warna latar saat dihover */
+        border-radius: 5px;
+        padding: 15px;
+        transition: background-color 0.3s ease;
+    }
+    .sidebar a.active {
+            font-weight: 700;
+            color: #ffffff;
+            background-color: #000000;  /* Warna latar belakang saat aktif */
+            border-radius: 5px;
+            padding: 15px;
+        }
+    .sidebar a.active i {
+        color: #ffffff;
+    }
+    .sidebar .friends {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-left: 15px;
+     }
+    .sidebar .friends img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    .main-content {
+        flex: 1;
+        margin-left: 290px;
+        padding: 20px;
+    }
+    .lessons-list {
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .lessons-list h2 {
+        font-size: 24px;
+        color: #000000;
+        margin-bottom: 20px;
+    }
+    .lessons-list .lesson-item {
+        display: flex;
+        align-items: center;
+        margin-left: 30;
+        padding: 15px 0;
+        border-bottom: 1px solid #F0F4FF;
+    }
+    .lessons-list .lesson-item img {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+    }
+    .lessons-list .lesson-item .details {
+        flex: 1;
+    }
+    .lessons-list .lesson-item h3 {
+        font-size: 18px;
+        margin: 0;
+    }
+    .lessons-list .lesson-item p {
+        font-size: 14px;
+        color: #888888;
+    }
+    .lessons-list .lesson-item .view {
+        color: #4A4AFF;
+        margin-right: 40;
+        font-weight: 700;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+  </style>
+ </head>
+ <body>
+  <div class="sidebar">
+    <div class="logo">
+      <img src="stars_icon_shapes_v2_solid_138.png" alt="Logo" class="logo-img"/>
+      <h1>CodaLearn</h1>
+  </div>
+   <h2>OVERVIEW</h2>
+   <a href="dashboard.html">
+    <i class="fas fa-home"></i> Home
+   </a>
+   <a href="lesson.html">
+    <i class="fas fa-book"></i> Lesson
+   </a>
+   <a class="active" href="Tasks.html">
+    <i class="fas fa-tasks"></i> Tasks
+   </a>
+   <a href="profile.html">
+    <i class="fas fa-user"></i> Profile
+   </a>
+   <h2>FRIENDS</h2>
+   <div class="friends">
+    <img alt="Friend 1" height="40" src="https://storage.googleapis.com/a1aa/image/2c5T1PN97X7gAxNu9AdmgpvhiBdlf8iz2IlLJ7f3ZBE2ootTA.jpg" width="40"/>
+    <span>Dwai end pren</span>
+   </div>
+   <div class="friends">
+    <img alt="Friend 2" height="40" src="https://storage.googleapis.com/a1aa/image/bMa8lywbgb54JlAerUtSsvS6UMiNxTEY9b4keQOy5rHxootTA.jpg" width="40"/>
+    <span>Putra Siregar</span>
+   </div>
+   <h2>SETTINGS</h2>
+   <a class="settings" href="settings.html">
+    <i class="fas fa-cog"></i> Setting
+   </a>
+   <a class="settings" href="logout.html">
+    <i class="fas fa-sign-out-alt"></i> Logout
+   </a>
+  </div>
+  
+  <div class="main-content">
+    <div class="lessons-list">
+      <h2>Tasks</h2>
+      <div class="lesson-item">
+        <img src="html.png" alt="HTML Logo">
+        <div class="details">
+          <h3>HTML Basics</h3>
+        </div>
+        <a href="TasksHTML.html" class="view">View</a>
+      </div>
+      <div class="lesson-item">
+        <img src="css.png" alt="CSS Logo">
+        <div class="details">
+          <h3>CSS basics</h3>
+        </div>
+        <span class="view">View</span>
+      </div>
+      <div class="lesson-item">
+        <img src="js.png" alt="JavaScript Logo">
+        <div class="details">
+          <h3>JavaScript Basics</h3>
+        </div>
+        <span class="view">View</span>
+      </div>
+      <div class="lesson-item">
+        <img src="Pythonlogo.png" alt="Python Logo">
+        <div class="details">
+          <h3>Python Basics</h3>
+        </div>
+        <span class="view">View</span>
+      </div>
+      <div class="lesson-item">
+        <img src="c++.png" alt="C++ Logo">
+        <div class="details">
+          <h3>C++ Basics</h3>
+        </div>
+        <span class="view">View</span>
+      </div>
+      <div class="lesson-item">
+        <img src="java.png" alt="Java Logo">
+        <div class="details">
+          <h3>Java basics</h3>
+        </div>
+        <span class="view">View</span>
+      </div>
+      <!-- Lesson tambahan -->
+      <div class="lesson-item">
+        <img src="c.png" alt="C Logo">
+        <div class="details">
+          <h3>C Basics</h3>
+        </div>
+        <span class="view">View</span>
+      </div>
+      <div class="lesson-item">
+        <img src="figma.png" alt="Figma Logo">
+        <div class="details">
+          <h3>Figma Basics</h3>
+          <p>Learn UI/UX design using Figma</p>
+        </div>
+        <span class="view">View</span>
+      </div>
+    </div>
+  </div>
+ </body>
+</html>

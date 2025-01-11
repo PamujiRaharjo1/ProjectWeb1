@@ -1,0 +1,295 @@
+<html>
+ <head>
+  <title>
+   CodaLearn - Lesson
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        display: flex;
+        background-color: #e0e7ff;
+    }
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        background-color: #FFFFFF;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    .logo {
+            display: flex; 
+            align-items: center; 
+            margin-bottom: 40px; 
+            margin-left: 15;
+            margin-top: 20px;
+        }
+
+        .logo-img {
+            width: 30px; 
+            height: 30px;  
+            margin-right: 15px; 
+        }
+        .sidebar h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+    .sidebar h2 {
+        font-size: 16px;
+        margin-top: 60px;
+        margin-bottom: 10px;
+        color: #888888;
+    }
+    .sidebar a {
+        display: flex;
+        margin-top: 20px;
+        align-items: center;
+        text-decoration: none;
+        color: #000000;
+        margin-left: 40px;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    .sidebar a i {
+        margin-right: 10px;
+    }
+    .sidebar a:hover {
+        color: #FFFFFF;
+        background-color: #000000; /* Warna latar saat dihover */
+        border-radius: 5px;
+        padding: 15px;
+        transition: background-color 0.3s ease;
+    }
+    .sidebar a.active {
+            font-weight: 700;
+            color: #ffffff;
+            background-color: #000000;  /* Warna latar belakang saat aktif */
+            border-radius: 5px;
+            padding: 15px;
+        }
+    .sidebar a.active i {
+        color: #ffffff;
+    }
+    .sidebar .friends {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-left: 15px;
+     }
+    .sidebar .friends img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+        .content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 290px;
+            background-color: #e0e7ff;
+            margin-right: 290px;
+        }
+        .content .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .content .header i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .content .header h2 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .content .video {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content .video img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .content .video h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .content .video p {
+            color: #666;
+            font-size: 14px;
+        }
+        .content .description {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .content .description h4 {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+        }
+        .content .description p {
+            font-size: 14px;
+            color: #666;
+            text-align: justify;
+        }
+        .content .description ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        .content .description ul li {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .right-sidebar {
+            width: 250px;
+            background-color: #FFFFFF;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            position: fixed;
+            right: 0;
+            top: 70px;
+            border-radius: 10px;
+            bottom: 0;
+            overflow-y: auto;
+        }
+        .right-sidebar h2 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #888888;
+        }
+        .right-sidebar a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #000000;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .right-sidebar a i {
+            margin-right: 10px;
+        }
+        .right-sidebar a:hover {
+            color: #ffffff;
+            background-color: #00b4fccc;
+            border-radius: 5px;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .right-sidebar a.active {
+            font-weight: 700;
+            color: #ffffff;
+            background-color: #1ebbff;  /* Warna latar belakang saat aktif */
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .right-sidebar a.active i {
+            color: #ffffff;
+        }
+        .right-sidebar a.active:before {
+            content: '\f104'; /* Unicode untuk ikon panah kiri di Font Awesome */
+            font-family: 'Font Awesome 5 Free'; /* Font Awesome digunakan untuk ikon */
+            font-weight: 900; /* Pastikan untuk menggunakan font-weight yang sesuai */
+            margin-right: 10px;
+            color: #ffffff; /* Warna ikon */
+        }
+        .right-sidebar a.active1 {
+            font-weight: 700;
+            color: #ffffff;
+            background-color: #02f432;  /* Warna latar belakang saat aktif */
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .right-sidebar a.active1 i {
+            color: #ffffff;
+        }
+        .right-sidebar a.active1:before {
+            content: '\f105'; /* Unicode untuk ikon panah kiri di Font Awesome */
+            font-family: 'Font Awesome 5 Free'; /* Font Awesome digunakan untuk ikon */
+            font-weight: 900; /* Pastikan untuk menggunakan font-weight yang sesuai */
+            margin-right: 10px;
+            color: #ffffff; /* Warna ikon */
+        }
+
+  </style>
+ </head>
+ <body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="stars_icon_shapes_v2_solid_138.png" alt="Logo" class="logo-img"/>
+            <h1>CodaLearn</h1>
+        </div>
+     <h2>OVERVIEW</h2>
+     <a href="dashboard.html">
+      <i class="fas fa-home"></i> Home
+     </a>
+     <a class="active" href="lesson.html">
+      <i class="fas fa-book"></i> Lesson / HTML
+     </a>
+     <a href="Tasks.html">
+      <i class="fas fa-tasks"></i> Tasks
+     </a>
+     <a href="profile.html">
+      <i class="fas fa-user"></i> Profile
+     </a>
+     <h2>FRIENDS</h2>
+     <div class="friends">
+      <img alt="Friend 1" height="40" src="https://storage.googleapis.com/a1aa/image/2c5T1PN97X7gAxNu9AdmgpvhiBdlf8iz2IlLJ7f3ZBE2ootTA.jpg" width="40"/>
+      <span>Dwai end pren</span>
+     </div>
+     <div class="friends">
+      <img alt="Friend 2" height="40" src="https://storage.googleapis.com/a1aa/image/bMa8lywbgb54JlAerUtSsvS6UMiNxTEY9b4keQOy5rHxootTA.jpg" width="40"/>
+      <span>Putra Siregar</span>
+     </div>
+     <h2>SETTINGS</h2>
+     <a class="settings" href="settings.html">
+      <i class="fas fa-cog"></i> Setting
+     </a>
+     <a class="settings" href="logout.html">
+      <i class="fas fa-sign-out-alt"></i> Logout
+     </a>
+    </div>
+  <div class="content">
+   <div class="header">
+    <h2>Lesson > HTML</h2>
+   </div>
+   <div class="video">
+    <video width="600" height="300" controls  poster="thumbhail.jpg">
+        <source src="HTML in 100 Seconds.mp4" type="video/mp4">
+    </video>
+    <h3>Introduction to HTML Basic</h3>
+    <p>Aaron Jack | HTML | Duration 5 minutes</p>
+   </div>
+   <div class="description">
+        <h4><u>Overview</u></h4></br></br>
+        <h4>Course Description</h4>
+        <p>This course provides a quick introduction to HTML, covering the fundamental concepts and elements that form the backbone of web development. Designed for beginners, it offers a concise 5-minute video that explains essential HTML tags and structures, setting the foundation for building web pages. By the end of this lesson, students will have a basic understanding of how HTML works and be ready to move on to more complex topics.</p>
+    <h4>What You Will Learn:</h4>
+    <ul>
+        <li>The purpose of HTML in web development.</li>
+        <li>How to structure a simple HTML document.</li>
+        <li>Key HTML tags and their uses.</li>
+        <li>Basics of creating text, images, and links on a webpage.</li>
+    </ul>
+   </div>
+  </div>
+  <div class="right-sidebar">
+    <!-- Sidebar kanan -->
+    <h2>RELATED TOPICS</h2>
+    <a class="active" href="LessonHTML.html"><i class="fas fa-code"></i> HTML Introduction</a>
+    <a href="javascript.html"><i class="fas fa-code"></i> Elements and Tag HTML</a>
+    <a href="web-design.html"><i class="fas fa-code"></i> Creating Links with HTML</a>
+    <a href="javascript.html"><i class="fas fa-code"></i> Adding Images to HTML Pages </a>
+    <a href="web-design.html"><i class="fas fa-code"></i> Connecting HTML with CSS</a>
+    <a class="active1" href="TasksHTML.html"> Go to the Basic HTML Challenge questions page</a>
+    
+</div>
+</body>
+</html>

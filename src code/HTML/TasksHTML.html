@@ -1,0 +1,299 @@
+<html>
+    <head>
+        <title>CodaLearn TasksHTML</title>
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+          <style>
+            /* Sama seperti styling di halaman Dashboard untuk konsistensi */
+            body {
+                font-family: 'Roboto', sans-serif;
+                margin: 0;
+                display: flex;
+                background-color: #9abcfb;
+            }
+            .sidebar {
+                position: fixed;
+                width: 250px;
+                background-color: #FFFFFF;
+                padding: 20px;
+                box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            }
+            .logo {
+                display: flex; 
+                align-items: center; 
+                margin-bottom: 40px; 
+                margin-left: 15;
+                margin-top: 20px;
+            }
+
+            .logo-img {
+                width: 30px; 
+                height: 30px;  
+                margin-right: 15px; 
+            }
+            .sidebar h1 {
+                font-size: 24px;
+                margin: 0;
+            }
+            .sidebar h2 {
+                font-size: 16px;
+                margin-top: 60px;
+                margin-bottom: 10px;
+                color: #888888;
+            }
+            .sidebar a {
+                display: flex;
+                margin-top: 20px;
+                align-items: center;
+                text-decoration: none;
+                color: #000000;
+                margin-left: 40px;
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+            .sidebar a i {
+                margin-right: 10px;
+            }
+            .sidebar a:hover {
+                color: #FFFFFF;
+                background-color: #000000; /* Warna latar saat dihover */
+                border-radius: 5px;
+                padding: 15px;
+                transition: background-color 0.3s ease;
+            }
+            .sidebar a.active {
+                font-weight: 700;
+                color: #ffffff;
+                background-color: #000000;  /* Warna latar belakang saat aktif */
+                border-radius: 5px;
+                padding: 15px;
+            }
+            .sidebar a.active i {
+                color: #ffffff;
+            }
+            .sidebar .friends {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+                margin-left: 15px;
+             }
+            .sidebar .friends img {
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
+            .content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 290px;
+            background-color: #9abcfb;
+        }
+        .content .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .content .header i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .content h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .question {
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+            .options li {
+                list-style: none;
+                padding: 10px;
+                margin-bottom: 10px;
+                background-color: #C4DEF9;
+                border-radius: 5px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+        .options li:hover {
+                background-color: #00bbff;
+                color: white;
+        }
+        .options li.active {
+                background-color: #4CAF50; /* Warna aktif */
+                color: white;
+            }
+        .result {
+                margin-top: 10px;
+                font-weight: 700;
+                color: green;
+            }
+            .button {   
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            /* Popup container */
+            .popup {
+                display: none; /* Default: hidden */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6); /* Latar belakang semi-transparan */
+                justify-content: center;
+                align-items: center;
+                animation: fadeIn 0.5s ease;
+            }
+
+            /* Popup content */
+            .popup-content {
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                animation: slideIn 0.7s ease;
+                width: 70%;
+                max-width: 200px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                height: 300px;
+            }
+            .popup-content dotlottie-player {
+                margin-bottom: 10px; /* Jarak antara animasi dan tombol */
+            }
+
+            /* Animasi fade-in */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Animasi slide-in */
+            @keyframes slideIn {
+                from {
+                    transform: translateY(-50px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            /* Tombol close */
+            .popup button {
+                margin-top: 10px;
+                padding: 10px 20px;
+                border: none;
+                background-color: #1e8eff;
+                color: white;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            .popup button:hover {
+                background-color: #45a049;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="logo">
+              <img src="stars_icon_shapes_v2_solid_138.png" alt="Logo" class="logo-img"/>
+              <h1>CodaLearn</h1>
+          </div>
+            <h2>OVERVIEW</h2>
+         <a href="dashboard.html">
+            <i class="fas fa-home"></i>Home</a>
+         <a href="lesson.html">
+            <i class="fas fa-book"></i>Lesson</a>
+         <a class="active" href="Tasks.html">
+            <i class="fas fa-tasks"></i>Tasks / HTML</a>
+         <a href="profile.html">
+          <i class="fas fa-user"></i>Profile</a>
+         <h2>FRIENDS</h2>
+         <div class="friends">
+            <img alt="Friend 1" height="40" src="https://storage.googleapis.com/a1aa/image/2c5T1PN97X7gAxNu9AdmgpvhiBdlf8iz2IlLJ7f3ZBE2ootTA.jpg" width="40"/>
+            <span>Dwai end pren</span>
+         </div>
+         <div class="friends">
+            <img alt="Friend 2" height="40" src="https://storage.googleapis.com/a1aa/image/bMa8lywbgb54JlAerUtSsvS6UMiNxTEY9b4keQOy5rHxootTA.jpg" width="40"/>
+            <span>Putra Siregar</span>
+         </div>
+         <h2>SETTINGS</h2>
+         <a class="settings" href="settings.html">
+            <i class="fas fa-cog"></i> Setting</a>
+         <a class="settings" href="logout.html">
+            <i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
+    
+    <div class="content">
+        <div class="header">
+            <i class="fas fa-arrow-left"></i>
+            <h2>Tasks/HTML</h2>
+        </div>
+        <div class="question">
+            <p>What does HTML stand for?</p>
+            
+                <li><label><input type="radio" name="q1" value="A"> A. Hyper Text Making Language</label></li>
+                <li><label><input type="radio" name="q1" value="B"> B. Hyper Text Markup Language</label></li>
+                <li><label><input type="radio" name="q1" value="C"> C. Hyperlinks Text Managing Language</label></li>
+                <li><label><input type="radio" name="q1" value="D"> D. Hyper Text Managing Language</label></li>
+            </ul>
+            <p id="result1"></p>
+        
+            <p>What is the full form of CSS?</p>
+           
+                <li><label><input type="radio" name="q2" value="A"> A. Creative Style Sheets</label></li>
+                <li><label><input type="radio" name="q2" value="B"> B. Cascading Style Sheets</label></li>
+                <li><label><input type="radio" name="q2" value="C"> C. Computer Style Sheets</label></li>
+                <li><label><input type="radio" name="q2" value="D"> D. Colorful Style Sheets</label></li>
+            </ul>
+            <p id="result2"></p>
+        <!-- Tambahkan 8 soal lainnya serupa -->
+        <button class="button" onclick="checkAnswers()">Check Answers</button>
+    </div>
+    <div id="scorePopup" class="popup">
+        <div class="popup-content">
+            <h2>Your Score</h2>
+
+            <dotlottie-player id="sadGif"
+                src="https://lottie.host/880d93c9-3b4c-4544-992a-31e1ac50a8eb/qwFuEeXzC5.lottie"
+                background="transparent"
+                speed="1"
+                loop autoplay
+                style="max-width: 100%; width: 110; height: 110;"></dotlottie-player>
+            <dotlottie-player id="happyGif"
+                src="https://lottie.host/5b57a830-d394-4b71-805f-3030c226b32d/YhvU1eJ7gg.lottie"
+                background="transparent"
+                speed="1"
+                loop autoplay
+                style="max-width: 100%; width: 110; height: 110;"></dotlottie-player>
+
+            <p id="scoreValue">0/100</p>
+            <button onclick="closePopup()">Selesai</button>
+        </div>
+    </div>
+    <script src="scripttasks.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    </body>
+</html>
